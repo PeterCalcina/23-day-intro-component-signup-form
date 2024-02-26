@@ -1,4 +1,3 @@
-/* Crear una clase usuario con name, email, password*/
 class User {
   constructor(first_name, last_name, email, password) {
     this.first_name = first_name;
@@ -16,6 +15,9 @@ class User {
 
 let user = new User('', '', '', '');
 
-fillData = (field, value) => user[field] = value;
+fillData = (field, value) => {
+  user[field] = value;
+  window.clearInstance(field);
+};
 
 window.userInstance = user;

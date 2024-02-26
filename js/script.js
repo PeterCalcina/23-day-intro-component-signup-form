@@ -7,7 +7,7 @@ let toast = document.querySelector('.toast');
 
 form.addEventListener('submit', function (e) {
   e.preventDefault();
-  if(window.userInstance) {
+  if (window.userInstance) {
     let fields = window.userInstance.validateEmptyField();
     let emailValidate = window.userInstance.validateEmail();
 
@@ -28,11 +28,11 @@ form.addEventListener('submit', function (e) {
   if (window.userInstance && window.userInstance.validateEmptyField() && window.userInstance.validateEmail()) {
     toast.classList.add('active');
     clearForm();
-    
+
     setTimeout(() => {
       toast.classList.remove('active');
     }, 3000);
-  } 
+  }
 });
 
 function clearForm() {
@@ -40,3 +40,15 @@ function clearForm() {
     input.value = '';
   });
 }
+
+function clearErrorInput(field) {
+  inputs.forEach((input, i) => {
+    if (input.id === field) {
+      input.classList.remove('error');
+      error_messages[i].classList.remove('active');
+      error_icon[i].classList.remove('active');
+    }
+  });
+}
+
+window.clearInstance = clearErrorInput;
