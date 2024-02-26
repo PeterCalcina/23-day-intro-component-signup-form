@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Nombre del autor">
+    <meta name="description" content="Descripcion del proyecto">
+    <!-- Biblioteca de íconos Fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- Archivo reset Normalize -->
+    <link rel="stylesheet" href="css/normalize.css">
+    <!-- Archivo de estilos -->
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="./images/favicon-32x32.png" type="image/x-icon">
+    <title>Intro Component With Sign-Up Form</title>
+</head>
+
+<body>
+
+    <main class="container">
+        <section class="description_web">
+            <h1>Learn to code by watching others</h1>
+            <p>
+                See how experienced developers solve problems in real-time. Watching scripted tutorials is great, but
+                understanding how developers think is invaluable.
+            </p>
+        </section>
+
+        <section class="form_container">
+            <h2>Try it free 7 days <span>then $20/mo. thereafter</span></h2>
+
+            <form action="POST" id="form_free">
+                <div class="input_group">
+                    <div class="input_group_error">
+                        <input class="input" type="text" id="first_name" name="first_name" placeholder="First Name"
+                            oninput="fillData('first_name', this.value)">
+                        <img class="error_icon" src="images/icon-error.svg" alt="Icon error">
+                    </div>
+
+                    <span class="error_message" id="error_first_name">First Name cannot be empty</span>
+                </div>
+
+                <div class="input_group">
+                    <div class="input_group_error">
+                        <input class="input" type="text" id="last_name" name="last_name" placeholder="Last Name"
+                            oninput="fillData('last_name', this.value)">
+                        <img class="error_icon" src="images/icon-error.svg" alt="Icon error">
+                    </div>
+
+                    <span class="error_message" id="error_last_name">Last Name cannot be empty</span>
+                </div>
+
+                <div class="input_group">
+                    <div class="input_group_error">
+                        <input class="input" type="text" id="email" name="email" placeholder="Email Address"
+                            oninput="fillData('email', this.value)">
+                        <img class="error_icon" src="images/icon-error.svg" alt="Icon error">
+                    </div>
+
+                    <span class="error_message" id="error_email">Looks like this is not an email</span>
+                </div>
+
+                <div class="input_group">
+                    <div class="input_group_error">
+                        <input class="input" type="password" id="password" name="password" placeholder="Password"
+                            oninput="fillData('password', this.value)">
+                        <img class="error_icon" src="images/icon-error.svg" alt="Icon error">
+                    </div>
+
+                    <span class="error_message" id="error_password">Password cannot be empty</span>
+                </div>
+                <button type="submit" id="submit">CLAIM YOUR FREE TRIAL</button>
+                <p>By clicking the button, you are agreeing to our <a href="#">Terms and Services</a></p>
+            </form>
+        </section>
+
+        <div class="toast">
+            <p>Enjoy your 7-day free trial!</p>
+        </div>
+    </main>
+
+
+
+    <script src="js/script.js"></script>
+    <script src="js/user.js"></script>
+</body>
+
+</html>

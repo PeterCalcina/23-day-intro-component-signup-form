@@ -1,0 +1,340 @@
+/* -----------------
+Tabla de contenidos:
+--------------------
+1. Fuente ................ 11
+2. Variables ............. 17
+3. Estilos generales ..... 32
+-------------------- 
+*/
+
+
+/* ----- Fuente ----- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
+
+
+/* ----- Variables ----- */
+:root {
+  /* Colores primarios */
+  --red: hsl(0, 100%, 74%);
+  --green: hsl(154, 59%, 51%);
+  --white: hsl(0, 0%, 100%);
+
+  /* Accent */
+  --blue: hsl(248, 32%, 49%);
+
+  /* Colores neutrales */
+  --dark-blue: hsl(249, 10%, 26%);
+  --grayish-blue: hsl(246, 25%, 77%);
+  --dark-green: hsl(154, 60%, 45%);
+
+  /* Tipografia */
+  /* Body */
+  --font-size: 16px;
+
+  /* Font */
+  --font-family: 'Poppins', sans-serif;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semi-bold: 600;
+  --font-weight-bold: 700;
+}
+
+/* ----------------------------- */
+/* ----- Estilos generales ----- */
+/* ----------------------------- */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+
+  font-family: var(--font-family);
+  font-size: var(--font-size);
+  color: var(--dark-blue);
+}
+
+.container {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  place-items: center;
+  gap: 2rem;
+  width: 100%;
+  height: 100%;
+  padding: 5rem 10rem;
+  background: url('../images/bg-intro-desktop.png') no-repeat 100% 100% var(--red);
+}
+
+.container .description_web {
+  font-weight: var(--font-weight-regular);
+  color: white;
+}
+
+.container .description_web h1 {
+  font-size: 3rem;
+  font-weight: var(--font-weight-bold);
+}
+
+.container .form_container {
+  display: grid;
+  grid-template-rows: auto 1fr;
+  gap: 1.8rem;
+  width: 100%;
+  height: auto;
+}
+
+.container .form_container h2 {
+  padding: 15px 10px;
+  text-align: center;
+  font-size: var(--font-size);
+  font-weight: var(--font-weight-semi-bold);
+  color: var(--white);
+  border-radius: 10px;
+  background-color: var(--blue);
+  box-shadow: 0 7px 0 0 rgba(0, 0, 0, .2);
+}
+
+.container .form_container h2 span {
+  font-weight: var(--font-weight-regular);
+}
+
+.container .form_container form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 2.5rem;
+  border-radius: 10px;
+  background-color: var(--white);
+  box-shadow: 0 8px 0 0 rgba(0, 0, 0, .22);
+}
+
+.container .form_container form .input_group {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.container .form_container form .input_group .input_group_error {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.container .form_container form .input_group .input_group_error .input {
+  width: 100%;
+  padding: 15px 10px;
+  text-indent: 20px;
+  font-weight: var(--font-weight-semi-bold);
+  color: var(--dark-blue);
+  border: 1px solid var(--grayish-blue);
+  border-radius: 5px;
+}
+
+.container .form_container form .input_group .input_group_error .input:hover {
+  border: 1px solid var(--dark-blue);
+}
+
+.container .form_container form .input_group .input_group_error .input:focus {
+  outline: none;
+  border: 1px solid var(--dark-blue);
+}
+
+.container .form_container form .input_group .input_group_error .input.error {
+  border: 2px solid var(--red);
+}
+
+.container .form_container form .input_group .input_group_error .input.error::placeholder {
+  color: transparent;
+}
+
+.container .form_container form .input_group .input_group_error .input.error_email::placeholder {
+  color: var(--red);
+}
+
+.container .form_container form .input_group .error_message {
+  max-height: 0;
+  text-align: end;
+  font-size: 12px;
+  font-weight: var(--font-weight-medium);
+  color: var(--red);
+  overflow: hidden;
+  transition: max-height .3s ease-in-out;
+}
+
+.container .form_container form .input_group .error_message.active {
+  max-height: 20px;
+}
+
+.container .form_container form .input_group .input_group_error .error_icon {
+  position: absolute;
+  right: 20px;
+  width: 25px;
+  height: 25px;
+  opacity: 0;
+}
+
+.container .form_container form .input_group .error_icon.active {
+  animation: icon_error 1.5s ease-in-out infinite;
+}
+
+.container .form_container form button {
+  padding: 15px 10px;
+  font-weight: var(--font-weight-medium);
+  color: var(--white);
+  border: none;
+  border-radius: 5px;
+  background-color: var(--green);
+  box-shadow: 0 5px 0 0 var(--dark-green);
+  cursor: pointer;
+  transition: background-color .3s ease-in-out;
+}
+
+.container .form_container form button:hover {
+  filter: opacity(.7);
+}
+
+.container .form_container form p {
+  text-align: center;
+  font-size: 12px;
+  font-weight: var(--font-weight-medium);
+  color: var(--grayish-blue);
+}
+
+.container .form_container form p a {
+  text-decoration: none;
+  font-weight: var(--font-weight-bold);
+  color: var(--red);
+}
+
+.container .toast {
+  position: fixed;
+  top: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color: var(--blue);
+  transition: top 1s ease-in-out;
+}
+
+.container .toast p {
+  font-weight: var(--font-weight-medium);
+  color: var(--white);
+}
+
+.container .toast.active {
+  top: 5%;
+}
+
+.container .modal .modal_content .close_modal {
+  width: 50px;
+  height: 50px;
+  margin-top: 10px;
+  font-weight: var(--font-weight-bold);
+  color: var(--white);
+  border: 2px solid var(--blue);
+  border-radius: 50%;
+  background-color: var(--blue);
+  cursor: pointer;
+  transition: color .3s ease-in-out, background-color .3s ease-in-out;
+}
+
+.container .modal .modal_content .close_modal:hover {
+  color: var(--blue);
+  background-color: var(--white);
+}
+
+@keyframes icon_error {
+  0% {
+    opacity: 0;
+  }
+
+  25% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  75% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
+@media (width < 768px) {
+  .container {
+    grid-template-columns: 1fr;
+    padding: 4rem 2rem;
+    background-image: url('../images/bg-intro-mobile.png');
+  }
+
+  .container .description_web {
+    text-align: center;
+  }
+
+  .container .description_web h1 {
+    font-size: 2rem;
+  }
+
+  .container .description_web p {
+    margin-bottom: 2.5rem;
+    line-height: 1.5;
+    font-size: 17px;
+  }
+
+  .container .form_container form {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .container .form_container h2 {
+    padding: 1.5rem 5rem;
+    font-size: 17px;
+    line-height: 1.8;
+  }
+
+  .container .form_container form p {
+    padding-inline: 1rem;
+  }
+  .container .toast {
+    padding: 15px;
+    width: 80%;
+  }
+
+  .container .toast p {
+    text-align: center;
+  }
+}
+
+@media (width < 376px) {
+  .container .description_web h1 {
+    font-size: 1.7rem;
+  }
+  .container .description_web p {
+    font-size: 16px;
+  }
+  .container .form_container h2 {
+    padding: 1rem 3rem;
+    font-size: 16px;
+  }
+  .container .form_container form {
+    padding: 1.5rem;
+  }
+  .container .form_container form p {
+    font-size: 10px;
+  }
+  .container .toast.active {
+    top: 2%;
+  }
+}
